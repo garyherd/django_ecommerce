@@ -68,7 +68,7 @@ class SignOutPageTests(TestCase, ViewTesterMixin):
         ViewTesterMixin.setupViewTester(
             '/sign_out',
             sign_out,
-            "",  # a redirect will return no html
+            b"",  # a redirect will return no html
             status_code=302,
             session={'user': 'dummy'}
         )
