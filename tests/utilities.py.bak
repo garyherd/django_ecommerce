@@ -6,7 +6,7 @@ class FormTesterMixin():
         test_form = form_cls(data=data)
         self.assertFalse(test_form.is_valid())
 
-        self.assertEqual(
+        self.assertEquals(
             test_form.errors[expected_error_name],
             expected_error_msg,
             msg="Expected {} : Actual {} : using data {}".format(

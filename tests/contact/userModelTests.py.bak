@@ -32,5 +32,5 @@ class UserModelTest(TestCase):
     def test_ordering(self):
         contacts = ContactForm.objects.all()
         for contact in contacts:
-            print((contact.name, contact.timestamp))
+            print(contact.name, contact.timestamp)
         self.assertEqual(self.someUser, contacts[0])
