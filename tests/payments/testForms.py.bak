@@ -17,9 +17,9 @@ class FormTests(FormTesterMixin, SimpleTestCase):
     def test_signin_form_data_validation_for_invalid_data(self):
         invalid_data_list = [
             {'data': {'email': 'j@j.com'},
-             'error': ('password', ['This field is required.'])},
+             'error': ('password', [u'This field is required.'])},
             {'data': {'password': '1234'},
-             'error': ('email', ['This field is required.'])}
+             'error': ('email', [u'This field is required.'])}
         ]
 
         for invalid_data in invalid_data_list:

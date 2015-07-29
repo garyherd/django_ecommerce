@@ -52,7 +52,7 @@ class MainPageTests(TestCase):
 
     def test_returns_appropriate_html_response_code(self):
         resp = index(self.request)
-        self.assertEqual(resp.status_code, 200)
+        self.assertEquals(resp.status_code, 200)
 
     #################################
     ## Testing templates and views ##
@@ -60,7 +60,7 @@ class MainPageTests(TestCase):
 
     def test_returns_exact_html(self):
         resp = index(self.request)
-        self.assertEqual(
+        self.assertEquals(
             resp.content,
             render_to_response("index.html").content
         )
@@ -85,9 +85,9 @@ class MainPageTests(TestCase):
             # verify it returns the page for the logged-in user
             expectedHtml = render_to_response(
                 'user.html', {'user': user_mock.get_by_id(1)})
-            self.assertEqual(resp.content, expectedHtml.content)
+            self.assertEquals(resp.content, expectedHtml.content)
 
     def test_signout_view_signs_out_user(self):
         self.request.session = {'user': '1'}
         sign_out(self.request)
-        self.assertEqual({}, self.request.session)
+        self.assertEquals({}, self.request.session)
