@@ -72,8 +72,12 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'test.db'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_db',
+        'USER': 'djangousr',
+        'PASSWORD': 'djangousr',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
