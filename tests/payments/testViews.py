@@ -146,7 +146,7 @@ class RegisterPageTests(TestCase, ViewTesterMixin):
         new_cust = stripe_mock.return_value
 
         resp = register(self.request)
-        self.assertEqual(resp.content, "")
+        self.assertEqual(resp.content, b"")
         self.assertEqual(resp.status_code, 302)
         self.assertEqual(self.request.session['user'], new_user.pk)
 
@@ -204,7 +204,7 @@ class RegisterPageTests(TestCase, ViewTesterMixin):
             self.assertEqual(self.request.session , {})
             #self.assertEquals(resp.content, html.content)
             self.maxDiff = None
-            self.assertHTMLEqual(resp.content, html.content)
+            self.assertEqual(resp.content, html.content)
 
             # assert there is only one record in the database.
             # users = User.objects.filter(email='python@rocks.com')
