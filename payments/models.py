@@ -48,28 +48,3 @@ class User(AbstractBaseUser):
         return new_user
 
 
-class CustomerManager(object):
-
-
-    @classmethod
-    def create(cls, data, billing_type):
-        if billing_type == 'subscription':
-            new_customer = stripe.Customer.create(
-                email=data['email'],
-                description=data['name'],
-                card=data['stripe_token'],
-                plan=data['plan']
-            )
-        elif billing_type == 'one-time':
-            new_customer = stripe.Charge()
-        else:
-            new_customer = None
-        # TODO: create some sort of error?
-
-        return new_customer
-
-                # customer = stripe.Customer.create(
-                # email=form.cleaned_data['email'],
-                # description=form.cleaned_data['name'],
-                # card=form.cleaned_data['stripe_token'],
-                # plan="gold",
